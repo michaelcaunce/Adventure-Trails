@@ -1,0 +1,43 @@
+/* Universal reset */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  /* Set the size to 62.5% (10px) of the default 16px */
+  // Defining 1 rem setting
+  font-size: 62.5%;
+
+  @include respond(tab-land) { // width < 1200?
+        font-size: 56.25%; //1 rem = 9px, 9/16 = 50%
+    }
+
+    @include respond(tab-port) { // width < 900?
+        font-size: 50%; //1 rem = 8px, 8/16 = 50%
+    }
+
+    @include respond(big-desktop) {
+        font-size: 75%; //1rem = 12, 12/16
+    }
+}
+
+
+body {
+  /* Add padding to the entire body */
+  padding: 3rem;
+  /* Change the box model so any borders and/or paddings are not added to the height or width of an element */
+  box-sizing: border-box;
+
+  @include respond(tab-port) {
+    padding: 0;
+  }
+}
+
+::selection {
+  background-color: $color-primary;
+  color: $color-white;
+}

@@ -1,0 +1,239 @@
+
+.card {
+  // Add the perspective property
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+  // Important for setting position relative in &__side
+  position: relative;
+  height: 52rem;
+
+  // Style one side of the card
+  &__side {
+    height: 52rem;
+    transition: all .8s ease;
+    // Put the elements on top of each other
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    // Hide the back of the element
+    backface-visibility: hidden;
+    border-radius: .3rem;
+    overflow: hidden;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+
+    // Style the front of the card
+    &--front {
+      background-color: $color-white;
+    }
+    // Style the back of the card
+    &--back {
+      transform: rotateY(180deg);
+
+      // Styling for individual cards
+      &--1 {
+        background-image: linear-gradient(to right bottom,
+        #7DB8FA, #37516E);
+      }
+
+      &--2 {
+        background-image: linear-gradient(to right bottom,
+        #0D2601, #739E5A);
+      }
+
+      &--3 {
+        background-image: linear-gradient(to right bottom,
+        #A0CED9, #B0C1D9);
+      }
+    }
+  }
+
+  &:hover &__side--front {
+    // Rotate the card -180 degrees to give the impression of continuous turning
+    transform: rotateY(-180deg);
+  }
+
+  &:hover &__side--back {
+    // Rotate the card back to 0
+    transform: rotateY(0);
+  }
+
+  // Start of the front side styling
+
+  // Front side picture styling
+  &__picture {
+    background-size: cover;
+    height: 23rem;
+    background-blend-mode: screen;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    border-top-left-radius: .3rem;
+    border-top-right-radius: .3rem;
+
+    // Styling for individual cards
+    &--1 {
+      background-image: linear-gradient(to right bottom, #7DB8FA, #37516E),
+      url(../img/nat-5.jpg);
+    }
+
+    &--2 {
+      background-image: linear-gradient(to right bottom, #0D2601, #739E5A),
+      url(../img/nat-6.jpg);
+    }
+
+    &--3 {
+      background-image: linear-gradient(to right bottom, #A0CED9, #B0C1D9),
+      url(../img/nat-7.jpg);
+    }
+  }
+  // End of front side picture Styling
+
+  // Start of front side heading styling
+  &__heading {
+    font-size: 2.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: right;
+    color: $color-white;
+    // Set the heading over the image
+    position: absolute;
+    top: 12rem;
+    left: 3rem;
+    width: 75%;
+  }
+
+  &__heading-span {
+    padding: 1rem 1.5rem;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+
+    &--1 {
+      background-image: linear-gradient(to right bottom,
+      rgba(#7DB8FA, .85),
+      rgba(#37516E, .85));
+    }
+
+    &--2 {
+      background-image: linear-gradient(to right bottom,
+      rgba(#0D2601, .85),
+      rgba(#739E5A, .85));
+    }
+
+    &--3 {
+      background-image: linear-gradient(to right bottom,
+      rgba(#A0CED9, .85),
+      rgba(#A0CED9, .85));
+    }
+  }
+  // End of heading styling
+
+  // Start of front side details styling
+  &__details {
+    padding: 3rem;
+
+    ul {
+      list-style: none;
+      width: 80%;
+      // Centre the block item within a block element
+      margin: 0 auto;
+
+      li {
+        text-align: center;
+        font-size: 1.5rem;
+        padding: 1rem;
+
+        &:not(:last-child) {
+          border-bottom: .1rem solid $color-body-text;
+        }
+      }
+    }
+  }
+  // End of detail styling
+  // End of front side styling
+
+  // Start of back side styling
+
+  // Style the price box
+  &__price-box {
+    text-align: center;
+    margin-bottom: 8rem;
+    color: $color-white;
+  }
+
+  // Styling for the paragraph containg the text
+  &__price-only {
+    font-size: 1.7rem;
+    text-transform: uppercase;
+  }
+
+  // Styling for the paragraph containing the cost
+  &__price-value {
+    font-size: 6rem;
+    font-weight: 100;
+  }
+
+  // Styling for the button
+  &__cta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    text-align: center;
+  }
+
+
+
+  // Responsive styling. Remove the back of the card and display the back side properties
+  // on the front of the card using position relative.
+  // @include respond(tab-port) {
+  @media only screen and (max-width: 56.25em), only screen and (hover: none) {
+    height: auto;
+    border-radius: .3rem;
+    background-color: $color-white;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .5);
+
+    // Style one side of the card
+    &__side {
+      height: auto;
+      position: relative;
+      border-radius: .3rem;
+      box-shadow: none;
+
+      // The back of the card now appears at the bottom of the card front
+      &--back {
+        transform: rotateY(0);
+        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
+      }
+    }
+
+    &:hover &__side--front {
+      transform: rotateY(0);
+    }
+
+    &__details {
+      padding: 0 3rem;
+    }
+
+    // Styling for the button
+    &__cta {
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: translate(0);
+      width: 100%;
+      padding: 7rem 4rem 4rem 4rem;
+    }
+
+    // Style the price box
+    &__price-box {
+      margin-bottom: 3rem;
+    }
+
+    // Styling for the paragraph containing the cost
+    &__price-value {
+      font-size: 5rem;
+    }
+  }
+
+}

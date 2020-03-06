@@ -1,0 +1,52 @@
+/* Animation keyframes */
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    /* Move the element to the side for the start of the animation */
+    transform: translateX(-10rem);
+  }
+
+  80% {
+    /* Move the element to the opposite side during the animation */
+    transform: translateX(1rem);
+  }
+
+  100% {
+    opacity: 1;
+    /* Move the element to the original position */
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    /* Move the element to the side for the start of the animation */
+    transform: translateX(10rem);
+  }
+
+  80% {
+    /* Move the element to the opposite side during the animation */
+    transform: translateX(-1rem);
+  }
+
+  100% {
+    opacity: 1;
+    /* Move the element to the original position */
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    /* Move the element to the side for the start of the animation */
+    transform: translateY(5rem);
+  }
+
+  100% {
+    opacity: 1;
+    /* Move the element to the original position */
+    transform: translate(0);
+  }
+}
