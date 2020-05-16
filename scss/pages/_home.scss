@@ -22,9 +22,9 @@
 .section-features {
   padding: 20rem 0;
   background-image: linear-gradient(to right bottom,
-    rgba($color-primary, 0.8),
-    rgba($color-primary-dark, 0.8)),
-    url(../img/nat-4.jpg);
+    rgba($color-primary, 0.3),
+    rgba($color-primary-dark, 0.3)),
+    url(../img/hero.jpg);
   background-size: cover;
   // Move the featues section up to remove the white space
   margin-top: -12rem;
@@ -72,7 +72,6 @@
 
 .section-book {
   padding: 15rem 0;
-  background-image: linear-gradient(to right bottom, $color-primary, $color-primary-dark);
 
   @include respond(tab-port) {
     padding: 10rem 0;
@@ -84,18 +83,19 @@
   rgba($color-white, .9) 0%,
   rgba($color-white, .9) 50%,
   transparent 50%),
-  url(../img/nat-10.jpg);
+  url(../img/hero4.jpg);
 
   background-size: cover;
+  background-position: bottom;
   border-radius: .3rem;
-  box-shadow: 0 1.5rem 4rem rgba($color-white, .2);
+  box-shadow: 0 1.5rem 4rem rgba($color-black, .2);
 
 
   @include respond(tab-land) {
     background-image: linear-gradient(to right,
     rgba($color-white, .9) 0%,
     rgba($color-white, .9) 100%),
-    url(../img/nat-10.jpg);
+    url(../img/hero4.jpg);
   }
 
   &__form {

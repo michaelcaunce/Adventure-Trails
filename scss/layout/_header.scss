@@ -4,56 +4,41 @@
   justify-content: flex-start; /* center flex items horizontally, in this case */
   align-items: center; /* center flex items vertically, in this case */
   /* Always covers 95% of the screen */
-  height: 85vh;
+  height: 100vh;
   background-image: linear-gradient(to bottom,
-    rgba($color-primary, 0.8),
-    rgba($color-primary-dark, 0.9)),
+    rgba($color-primary, .3),
+    rgba($color-primary-dark, .4)),
     url(../img/hero-small.jpg);
   background-size: cover;
   /* The top of the background image always stays in place */
-  background-position: bottom;
+  // background-position: bottom;
   position: relative;
 
   @include respond(phone) {
     justify-content: center; /* center flex items horizontally, in this case */
-  }
-
-
-  @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0 )) {
-    height: 95vh;
-    /* Using clip path and the x, y values to add a diagonal line */
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    background-position: top;
   }
 
   @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
         only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
         only screen and (min-width: 125em) {
           background-image: linear-gradient(to right bottom,
-            rgba($color-primary, 0.8),
-            rgba($color-primary-dark, 0.8)),
-            url(../img/hero.jpg);
-  }
-
-
-  @include respond(phone) {
-    height: 100vh;
-    /* Using clip path and the x, y values to add a diagonal line */
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100vh, 0 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 100vh, 0 100%);
+          rgba($color-primary, .3),
+          rgba($color-primary-dark, .4)),
+          url(../img/hero.jpg);
   }
 
     // Nested elements
     &__logo-box {
       position: absolute;
       /* Place the logo where we want using top and left below */
-      top: 3rem;
-      left: 3rem;
+      top: 2rem;
+      left: -2rem;
     }
 
     /* Define the size of the logo */
     &__logo {
-      height: 3.5rem;
+      height: 10rem;
     }
 
     /* Styling for the heading h1 */
@@ -70,10 +55,5 @@
         background-color: transparent;
         padding: 0;
       }
-      /* Style to text box to the centre of the header */
-      // position: absolute;
-      // top: 50%;
-      // left: 10%;
-      // transform: translate(-10%, -50%);
     }
 }
